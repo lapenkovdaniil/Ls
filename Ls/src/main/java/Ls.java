@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Map.Entry;
-
 
 public class Ls {
     static File item;
@@ -71,23 +69,23 @@ public class Ls {
         }
     }
     private static void printAnswer() {
-            try
-            {
-                FileWriter outputFile = new FileWriter(ls.outputPath);
+        try
+        {
+            FileWriter outputFile = new FileWriter(ls.outputPath);
 
-                for (Map.Entry<String, String> map : answer.entrySet())
-                    if (ls.lFlag)
-                        outputFile.write(map.getValue() + "   " + map.getKey() + "\n");
-                    else
-                        outputFile.write(map.getKey() + "\n");
+            for (Map.Entry<String, String> map : answer.entrySet())
+                if (ls.lFlag)
+                    outputFile.write(map.getValue() + "   " + map.getKey() + "\n");
+                else
+                    outputFile.write(map.getKey() + "\n");
 
-                outputFile.close();
-            }
-            catch (IOException e)
-            {
-                System.err.println(e.getMessage());
-            }
+            outputFile.close();
         }
+        catch (IOException e)
+        {
+            System.err.println(e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -139,6 +137,4 @@ public class Ls {
         }
         Ls.printAnswer();
     }
-
-
 }
